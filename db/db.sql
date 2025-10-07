@@ -15,4 +15,4 @@ VALUES
     ('Jane Doe', 'jane@example.com', 'hash123'),
     ('John Smith', 'john@example.com', 'hash456');
 
-SELECT FROM users;
+SELECT * FROM users;

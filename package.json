@@ -3,23 +3,31 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
+ "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/index.js",
-    "dev": "node --env-file .env --watch src/index.js"
+    "dev": "node --env-file .env --watch src/index.js",
+    "migrate:up": "node --env-file .env db/migrate.js up",
+    "migrate:down": "node --env-file .env db/migrate.js down",
+    "migrate:create": "node --env-file .env db/migrate.js create",
+    "migrate:status": "node --env-file .env db/migrate.js status"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.906.0",
+    "bcrypt": "^6.0.0",
     "express": "^5.1.0",
     "morgan": "^1.10.1",
+    "multer": "^2.0.2",
+    "multer-s3": "^3.0.1",
     "pg": "^8.16.3"
   },
   "devDependencies": {
     "standard": "17.1.2"
-  }, 
+  },
   "eslintConfig": {
     "extends": "standard"
   }

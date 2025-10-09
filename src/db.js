@@ -2,7 +2,7 @@ import PG from 'pg'
 import { config } from './config.js'
 
 export const pool = new PG.Pool({
-  connectionString: config.DB_URL
+  connectionString: config.DATABASE_URL
 })
 
 pool.query('SELECT NOW()')

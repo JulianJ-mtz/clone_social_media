@@ -27,22 +27,22 @@ export async function logout (req, res) {
   }
 }
 
-// export async function logoutAll (req, res) {
-//   try {
-//     const userId = req.user.id
+export async function logoutAll (req, res) {
+  try {
+    const userId = req.user.id
 
-//     if (!userId) {
-//       return res.status(400).json({ message: 'User ID is required' })
-//     }
+    if (!userId) {
+      return res.status(400).json({ message: 'User ID is required' })
+    }
 
-//     await pool.query(
-//       'UPDATE tokens SET revoked_at = NOW() WHERE user_id = $1 AND revoked_at IS NULL',
-//       [userId]
-//     )
+    await pool.query(
+      'UPDATE tokens SET revoked_at = NOW() WHERE user_id = $1 AND revoked_at IS NULL',
+      [userId]
+    )
 
-//     res.json({ message: 'Logged out from all devices successfully' })
-//   } catch (error) {
-//     console.error('Error during logout all:', error)
-//     return res.status(500).json({ message: 'Internal server error' })
-//   }
-// }
+    res.json({ message: 'Logged out from all devices successfully' })
+  } catch (error) {
+    console.error('Error during logout all:', error)
+    return res.status(500).json({ message: 'Internal server error' })
+  }
+}
